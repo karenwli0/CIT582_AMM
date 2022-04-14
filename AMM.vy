@@ -14,7 +14,7 @@ def get_token_address(token: uint256) -> address:
 	    return self.tokenA.address
     if token == 1:
 		return self.tokenB.address
-	return ZERO_ADDRESS	
+    return ZERO_ADDRESS
 
 # Sets the on chain market maker with its owner, and initial token quantities
 @external
@@ -51,6 +51,7 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
         self.tokenA.transfer(msg.sender, token_to_send)
         self.tokenBQty = new_total_tokens
         self.tokenAQty = new_total_other_tokens
+
 
 # Owner can withdraw their funds and destroy the market maker
 @external
