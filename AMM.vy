@@ -13,7 +13,7 @@ def get_token_address(token: uint256) -> address:
     if token == 0:
 	    return self.tokenA.address
     if token == 1:
-		return self.tokenB.address
+	    return self.tokenB.address
     return ZERO_ADDRESS
 
 # Sets the on chain market maker with its owner, and initial token quantities
