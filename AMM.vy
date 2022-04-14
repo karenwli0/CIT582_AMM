@@ -39,19 +39,19 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
 	if sell_token == self.tokenA.address:
 	    self.tokenA.transferFrom(msg.sender, self, sell_quantity)
 	    new_total_tokens: uint256 = self.tokenAQty + sell_quantity
-        new_total_other_tokens: uint256 = self.invariant / new_total_tokens
-        token_to_send: uint256 = self.tokenBQty - new_total_other_tokens
-        self.tokenB.transfer(msg.sender, token_to_send)
-        self.tokenAQty = new_total_tokens
-        self.tokenBQty = new_total_other_tokens
+	    new_total_other_tokens: uint256 = self.invariant / new_total_tokens
+	    token_to_send: uint256 = self.tokenBQty - new_total_other_tokens
+	    self.tokenB.transfer(msg.sender, token_to_send)
+	    self.tokenAQty = new_total_tokens
+	    self.tokenBQty = new_total_other_tokens
 	if sell_token == self.tokenB.address:
 	    self.tokenB.transferFrom(msg.sender, self, sell_quantity)
-        new_total_tokens: uint256 = self.tokenBQty + sell_quantity
-        new_total_other_tokens: uint256 = self.invariant / new_total_tokens
-        token_to_send: uint256 = self.tokenAQty - new_total_other_tokens
-        self.tokenA.transfer(msg.sender, token_to_send)
-        self.tokenBQty = new_total_tokens
-        self.tokenAQty = new_total_other_tokens
+	    new_total_tokens: uint256 = self.tokenBQty + sell_quantity
+	    new_total_other_tokens: uint256 = self.invariant / new_total_tokens
+	    token_to_send: uint256 = self.tokenAQty - new_total_other_tokens
+	    self.tokenA.transfer(msg.sender, token_to_send)
+	    self.tokenBQty = new_total_tokens
+	    self.tokenAQty = new_total_other_tokens
 
 
 # Owner can withdraw their funds and destroy the market maker
